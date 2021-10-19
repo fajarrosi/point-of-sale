@@ -22,6 +22,34 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 - Research for requirement project. (DONE)
 - Tahap Inception (business Modelling). (30%)
 
+### Day 2 (19 Oktober 2021)
+
+**Today's Planning**: 
+- Tahap Inception - Studi Literatur.
+- Tahap Inception - Deskripsi Produk.
+- Tahap Inception - Business case.
+- Tahap Inception - Requirement.
+- Tahap Inception - Analysis & Design.
+- Tahap Inception - Implementation.
+- Tahap Inception - Test.
+- Tahap Inception - Deployment.
+- Tahap Inception - Configuration & change management.
+- Tahap Inception - Project management.
+- Tahap Inception - Environment.
+
+**Today's Progress**: 
+- Tahap Inception - Studi Literatur. (DONE)
+- Tahap Inception - Deskripsi Produk.(DONE)
+- Tahap Inception - Business case.(DONE)
+- Tahap Inception - Requirement.(DONE)
+- Tahap Inception - Analysis & Design.(DONE)
+- Tahap Inception - Implementation.
+- Tahap Inception - Test.(DONE)
+- Tahap Inception - Deployment.(DONE)
+- Tahap Inception - Configuration & change management.(DONE)
+- Tahap Inception - Project management.(DONE)
+- Tahap Inception - Environment.(DONE)
+
 ## License
 
  open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
