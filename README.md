@@ -50,6 +50,16 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 - Tahap Inception - Project management.(DONE)
 - Tahap Inception - Environment.(DONE)
 
+### Day 3 (9 November 2021)
+
+**Today's Planning**: 
+- Tahap Elaboration - Business Modelling.
+- Tahap Elaboration - Analysis & Design (class Diagram).
+
+**Today's Progress**: 
+- Tahap Elaboration - Business Modelling (DONE).
+- Tahap Elaboration - Analysis & Design (class Diagram) (50%).
+
 ## License
 
  open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
