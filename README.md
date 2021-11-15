@@ -84,7 +84,7 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 
 **Today's Progress**: 
 - Tahap Elaboration - Analysis & Design (class Diagram) (DONE).
-- Tahap Elaboration - Analysis & Design (Desain DB) (15%).
+- Tahap Elaboration - Analysis & Design (Desain DB) (DONE).
 
 
 ## License
