@@ -82,6 +82,11 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 - Tahap Elaboration - Analysis & Design (class Diagram).
 - Tahap Elaboration - Analysis & Design (Desain DB).
 
+**Today's Progress**: 
+- Tahap Elaboration - Analysis & Design (class Diagram) (DONE).
+- Tahap Elaboration - Analysis & Design (Desain DB) (15%).
+
+
 ## License
 
  open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
