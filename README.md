@@ -76,6 +76,12 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 - Tahap Elaboration - Analysis & Design (class Diagram).
 - Tahap Elaboration - Analysis & Design (Desain DB).
 
+### Day 6 (15 November 2021)
+
+**Today's Planning**: 
+- Tahap Elaboration - Analysis & Design (class Diagram).
+- Tahap Elaboration - Analysis & Design (Desain DB).
+
 ## License
 
  open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
