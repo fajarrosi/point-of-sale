@@ -86,6 +86,18 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 - Tahap Elaboration - Analysis & Design (class Diagram) (DONE).
 - Tahap Elaboration - Analysis & Design (Desain DB) (DONE).
 
+### Day 7 (16 November 2021)
+
+**Today's Planning**: 
+- Tahap Elaboration - Implementation (Desain Tampilan).
+
+### Day 8 (17 November 2021)
+
+**Today's Planning**: 
+- Tahap Elaboration - Implementation (Desain Tampilan).
+- Create vue file
+
+
 
 ## License
 
