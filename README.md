@@ -97,6 +97,21 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 - Tahap Elaboration - Implementation (Desain Tampilan).
 - Create vue file
 
+### Day 9 (1 Desember 2021)
+
+**Today's Planning**: 
+- Tahap Elaboration - Implementation (Desain Tampilan - Login).
+
+### Day 10 (8 Desember 2021)
+
+**Today's Planning**: 
+- Tahap Elaboration - Implementation (Desain Tampilan - Login).
+- Tahap Elaboration - Implementation (Desain Tampilan - Kasir).
+
+**Today's Progress**: 
+- Tahap Elaboration - Implementation (Desain Tampilan - Login) (DONE)
+- Tahap Elaboration - Implementation (Desain Tampilan - Kasir) (DONE)
+
 
 
 ## License
