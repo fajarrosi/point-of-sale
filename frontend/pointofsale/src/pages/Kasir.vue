@@ -64,12 +64,32 @@
         <q-drawer  v-model="rightDrawerOpen" side="right"
         :width="300"
         >
-            <q-scroll-area class="fit">
-                <div class="q-pa-md">
+            <q-scroll-area style="width:300px;height:100vh;">
+                <div class="q-pa-md" style="width:300px;height:100vh;overflow-wrap: break-word;
+  word-wrap: break-word;max-width:300px;">
                     <div class="text-subtitle2 q-mb-sm">Keranjang</div>
                     <q-separator />
-                    <div v-for="n in 100" :key="n">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                    <div v-for="n in 20" :key="n">
+                        <div class="row q-my-md">
+                            <div class="col-4">
+                                <q-img
+                                    src="https://cdn.quasar.dev/img/mountains.jpg"
+                                    spinner-color="primary"
+                                    spinner-size="82px"
+                                    class="btn-radius"
+                                />
+                            </div>
+                            <div class="col-8 row q-pl-md">
+                                <span class="ellipsis col-12 text-bold">
+                                    Baju ke-1 Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet 
+                                </span>
+                                <div class="col-12 row justify-between">
+                                    <span class="text-bold col-2">x1</span>
+                                    <span class="text-bold col-7">Rp 100.000</span>
+                                </div>
+                            </div>
+                        </div>
+                        <q-separator />
                     </div>
                 </div>
             </q-scroll-area>
@@ -194,7 +214,7 @@
                                 </div>
                             </div>
                         </div>
-                            <q-btn color="primary" unelevated class="text-white col-12 btn-radius q-mt-sm" label="Tambah Ke Billing" no-caps/>
+                            <q-btn color="primary" unelevated class="text-white col-12 btn-radius q-mt-sm" label="Tambah Ke Keranjang" no-caps/>
                     </q-card-section>
                 </q-card>
             </div>
