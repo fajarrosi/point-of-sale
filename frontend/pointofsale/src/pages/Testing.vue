@@ -37,7 +37,6 @@
                                             Keranjang
                                         </div>
                                     </div>
-                                    <q-badge color="red" floating>4</q-badge>
                                 </q-btn>
                         </q-item-section>
                     </q-item>

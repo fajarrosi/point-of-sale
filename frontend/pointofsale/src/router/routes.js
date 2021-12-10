@@ -15,6 +15,10 @@ const routes = [
     path:'/kasir',
     component:()=> import('pages/Kasir.vue')
   },
+  {
+    path:'/testing',
+    component:()=> import('pages/Testing.vue')
+  },
 
   // Always leave this as last one,
   // but you can also remove it
