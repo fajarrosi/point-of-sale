@@ -96,42 +96,110 @@
             <q-btn color="white" label="kategori6" no-caps class="col text-black q-mr-sm " rounded dense unelevated/>
             <q-btn color="white" label="kategori7" no-caps class="col text-black q-mr-sm " rounded dense unelevated/>
         </div>
-        <div class="row q-mt-lg">
-            <div class="col-3 q-pr-lg" v-for="n in 12" :key="n">
+        <div class="row q-my-lg">
+            <div class="col-3 q-pr-lg" v-for="n in 20" :key="n">
                 <q-card class="item-card q-mb-lg btn-radius" flat >
-                    <q-card-section class="row q-pb-none">
-                        <div class="col-12">
+                    <q-card-section class="row">
+                        <div class="col-4">
                             <q-img
                                 src="https://cdn.quasar.dev/img/mountains.jpg"
                                 spinner-color="primary"
                                 spinner-size="82px"
                                 class="btn-radius"
+                                height="100px"
                             />
                         </div>
-                        <div class="text-h6 col-12">Baju ke-1</div>
-                    </q-card-section>
-                    <q-card-section class="row">
-                        <div class="col-12">
-                            <div class="text-h6">Ukuran</div>
-                            <q-btn color="white" label="S" class="text-black q-mr-sm " dense round/>
-                            <q-btn color="white" label="M" class="text-black q-mr-sm " dense round/>
-                            <q-btn color="white" label="L" class="text-black q-mr-sm " dense round/>
-                            <q-btn color="white" label="XL" class="text-black q-mr-sm " dense round/>
-                        </div>
-                        <div class="col-12 q-mt-md">
-                            <div class="text-h6">Jumlah</div>
-                            <div class="row items-center">
-                                <q-btn color="white" icon="remove" class="text-black col-2" dense round/>
-                                <span class="text-h6 col-2 q-pl-md">1</span>
-                                <q-btn color="white" icon="add" class="text-black col-2" dense round/>
+                        <div class="col-8 row q-pl-md">
+                            <div class="text-bold  col-12 ">
+                                <span class="ellipsis-3-lines">
+                                    Baju ke-1 Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet 
+                                    Baju ke-1 Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet 
+                                </span>
+                            </div>
+                            <div class="text-bold  col-12">
+                                Rp 1000.000
                             </div>
                         </div>
-                        <div class="text-h5 col-12 text-bold q-mt-md">Rp 5000</div>
-                        <q-btn color="primary" class="text-white col-12 btn-radius q-mt-lg" label="Tambah Ke Billing" no-caps/>
+                        <div class="row col-12 q-mt-sm justify-between">
+                            <div class="col-6">
+                                <div class="text-bold q-mb-sm">Jumlah</div>
+                                <div class="row items-center">
+                                    <q-btn 
+                                    no-caps unelevated
+                                    style="width:25px;height:25px;border-radius:20px;background:#F7F2F2;"  
+                                    >
+                                    <div class="row items-center">
+                                        <q-icon name="remove" />
+                                    </div>
+                                    </q-btn>
+                                    <span class="q-mx-sm text-h6">1</span>
+                                    <q-btn 
+                                    no-caps unelevated
+                                    style="width:25px;height:25px;border-radius:20px;background:#F7F2F2;" 
+                                    >
+                                    <div class="row items-center">
+                                        <q-icon name="add" />
+                                    </div>
+                                    </q-btn>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="text-bold q-mb-sm">Ukuran</div>
+                                <div class="row q-mb-sm">
+                                    <q-btn 
+                                    unelevated
+                                    color="accent"
+                                    class="q-mr-sm col-6"
+                                    style="width:25px;height:25px;border-radius:20px;" 
+                                    >
+                                        <div class="row items-center">
+                                            <span class="text-primary">S</span>
+                                        </div>
+                                    </q-btn>
+                                    <q-btn 
+                                    unelevated
+                                    color="primary"
+                                    class="col-5"
+                                    style="width:25px;height:25px;border-radius:20px;"
+                                    flat 
+                                    >
+                                        <div class="row items-center">
+                                            <span>M</span>
+                                        </div>
+                                    </q-btn>
+                                </div>
+                                <div class="row">
+                                    <q-btn 
+                                    unelevated
+                                    color="primary"
+                                    class="q-mr-sm col-6"
+                                    style="width:25px;height:25px;border-radius:20px;"
+                                    flat 
+                                    >
+                                        <div class="row items-center">
+                                            <span>L</span>
+                                        </div>
+                                    </q-btn>
+                                    <q-btn 
+                                    unelevated
+                                    color="primary"
+                                    class="col-5"
+                                    style="width:25px;height:25px;border-radius:20px;"
+                                    flat 
+                                    >
+                                        <div class="row items-center">
+                                            <span>XL</span>
+                                        </div>
+                                    </q-btn>
+                                </div>
+                            </div>
+                        </div>
+                            <q-btn color="primary" unelevated class="text-white col-12 btn-radius q-mt-sm" label="Tambah Ke Billing" no-caps/>
                     </q-card-section>
                 </q-card>
             </div>
         </div>
+        
                     <div class="text-primary">@Copyright - Fajar Ilham Rosi - 2021 - POS Busana Muslim</div>
             </q-page>
         </q-page-container>
