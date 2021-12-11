@@ -2,3 +2,10 @@
 .btn-radius{
     border-radius: 10px;
 }
+
+.keranjang{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows:35px auto 150px;
+}

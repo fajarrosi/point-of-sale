@@ -62,37 +62,73 @@
         </q-drawer>
 
         <q-drawer  v-model="rightDrawerOpen" side="right"
-        :width="300"
+        :width="300" style="padding:16px;"
         >
-            <q-scroll-area style="width:300px;height:100vh;">
-                <div class="q-pa-md" style="width:300px;height:100vh;overflow-wrap: break-word;
-  word-wrap: break-word;max-width:300px;">
-                    <div class="text-subtitle2 q-mb-sm">Keranjang</div>
-                    <q-separator />
-                    <div v-for="n in 20" :key="n">
-                        <div class="row q-my-md">
-                            <div class="col-4">
-                                <q-img
-                                    src="https://cdn.quasar.dev/img/mountains.jpg"
-                                    spinner-color="primary"
-                                    spinner-size="82px"
-                                    class="btn-radius"
-                                />
+            <div class="keranjang">
+                <div>
+                    <div class="text-bold">Keranjang</div>
+                    <q-separator spaced inset />
+                </div>
+                <div>
+                    <q-scroll-area class="fit" style="max-width:100%;">
+                        <q-list>
+                            <div v-for="n in 50" :key="n" >
+                                <q-slide-item @left="onLeft" @right="onRight" left-color="green" right-color="red">
+                                    <template v-slot:left>
+                                    <div class="row items-center">
+                                        <q-icon left name="edit" /> Edit
+                                    </div>
+                                    </template>
+                                    <template v-slot:right>
+                                    <div class="row items-center">
+                                        Hapus <q-icon right name="delete" />
+                                    </div>
+                                    </template>
+                                <q-item clickable v-ripple class="q-pa-none">
+                                    <q-item-section >
+                                        <div class="row">
+                                            <div class="col-2 q-mr-sm">
+                                                <q-avatar rounded>
+                                                    <img src="https://cdn.quasar.dev/img/mountains.jpg" draggable="false">
+                                                </q-avatar>
+                                            </div>
+                                            <div class="col-9">
+                                                <span class="text-bold ellipsis-2-lines">
+                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row justify-between q-mt-sm" style="margin-bottom:-20px;">
+                                            <div class="col-4">Total : 10</div>
+                                            <div class="col-6 text-right">Rp 100.000</div>
+                                        </div>
+                                    </q-item-section>
+                                </q-item>
+                                </q-slide-item>
+                                <q-separator spaced/>
                             </div>
-                            <div class="col-8 row q-pl-md">
-                                <span class="ellipsis col-12 text-bold">
-                                    Baju ke-1 Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet 
-                                </span>
-                                <div class="col-12 row justify-between">
-                                    <span class="text-bold col-2">x1</span>
-                                    <span class="text-bold col-7">Rp 100.000</span>
-                                </div>
-                            </div>
-                        </div>
-                        <q-separator />
+                        </q-list>
+                    </q-scroll-area>
+                </div>
+                <div>
+                    <div class="row justify-between q-mt-md">
+                        <div class="col-4">Subtotal</div>
+                        <div class="col-6 text-right">Rp 100.000</div>
+                    </div>
+                    <div class="row justify-between">
+                        <div class="col-4">10% Pajak</div>
+                        <div class="col-6 text-right">Rp 10.000</div>
+                    </div>
+                    <q-separator spaced inset />
+                    <div class="row justify-between">
+                        <div class="text-bold col-4">TOTAL</div>
+                        <div class="text-bold col-6 text-right">Rp 1.110.000.000</div>
+                        <q-btn color="primary" label="Bayar" no-caps class="btn-radius col-12 q-mt-md" unelevated/>
                     </div>
                 </div>
-            </q-scroll-area>
+            </div>
         </q-drawer>
 
         <q-page-container>
@@ -228,14 +264,35 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref,onBeforeUnmount } from 'vue'
+import { useQuasar } from 'quasar'
 
 export default {
   setup () {
     const rightDrawerOpen = ref(false)
-    
+    const $q = useQuasar()
+    let timer
 
+    function finalize (reset) {
+      timer = setTimeout(() => {
+        reset()
+      }, 1000)
+    }
+
+    onBeforeUnmount(() => {
+      clearTimeout(timer)
+    })
     return {
+        onLeft ({ reset }) {
+        $q.notify('Left action triggered. Resetting in 1 second.')
+        finalize(reset)
+        },
+
+        onRight ({ reset }) {
+        $q.notify('Right action triggered. Resetting in 1 second.')
+        finalize(reset)
+        },
+
       leftDrawerOpen : ref(true),
       rightDrawerOpen,
       toggleRightDrawer () {
@@ -247,6 +304,6 @@ export default {
         return{
             search:'',
         }
-    }
+    },
 }
 </script>
