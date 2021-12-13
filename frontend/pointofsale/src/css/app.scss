@@ -9,3 +9,11 @@
     display: grid;
     grid-template-rows:35px auto 150px;
 }
+
+.header-kasir{
+    position:sticky;
+    position:-webkit-sticky;
+    top:0;
+    z-index:2;
+
+}
