@@ -13,7 +13,13 @@ const routes = [
   },
   {
     path:'/kasir',
-    component:()=> import('pages/Kasir.vue')
+    component:()=> import('layouts/KasirLayout.vue'),
+    children:[
+      {
+        path:'',
+        component: () => import('pages/Kasir.vue')
+      }
+    ]
   },
   {
     path:'/testing',

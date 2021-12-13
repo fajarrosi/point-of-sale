@@ -1,138 +1,5 @@
 <template>
-    <q-layout view="hHh LpR lFr">
-
-        <q-drawer show-if-above v-model="leftDrawerOpen" 
-            :width="90"
-            :breakpoint="500"
-        >
-            <q-scroll-area class="fit">
-                <q-list padding>
-                    <q-item clickable v-ripple>
-                        <q-item-section class="text-primary text-bold text-center text-h6">
-                            POS
-                        </q-item-section>
-                    </q-item>
-
-                    <q-separator />
-
-                    <q-item>
-                        <q-item-section>
-                            <q-btn color="primary" no-caps style="width:60px;height:60px;border-radius:10px;" push >
-                                <div class="row items-center">
-                                    <q-icon name="home_max" class="col-12"/>
-                                    <div class="text-center col-12">
-                                        Kasir
-                                    </div>
-                                </div>
-                            </q-btn>
-                        </q-item-section>
-                    </q-item>
-
-                    <q-item>
-                        <q-item-section>
-                                <q-btn color="primary" no-caps style="width:60px;height:60px;border-radius:10px;" push flat @click="toggleRightDrawer">
-                                    <div class="row items-center">
-                                        <q-icon name="shopping_cart" class="col-12"/>
-                                        <div class="text-center col-12">
-                                            Keranjang
-                                        </div>
-                                    </div>
-                                    <q-badge color="red" floating>4</q-badge>
-                                </q-btn>
-                        </q-item-section>
-                    </q-item>
-                    <div class="absolute-bottom">
-                        <q-separator spaced/>
-                        <q-item>
-                            <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:60px;height:60px;border-radius:10px;" push flat>
-                                        <div class="row items-center">
-                                            <q-icon name="logout" class="col-12"/>
-                                            <div class="text-center col-12">
-                                                Logout
-                                            </div>
-                                        </div>
-                                    </q-btn>
-                            </q-item-section>
-                        </q-item>
-                    </div>
-
-                </q-list>
-            </q-scroll-area>
-        </q-drawer>
-
-        <q-drawer  v-model="rightDrawerOpen" side="right"
-        :width="300" style="padding:16px;"
-        >
-            <div class="keranjang">
-                <div>
-                    <div class="text-bold">Keranjang</div>
-                    <q-separator spaced inset />
-                </div>
-                <div>
-                    <q-scroll-area class="fit" style="max-width:100%;">
-                        <q-list>
-                            <div v-for="n in 50" :key="n" >
-                                <q-slide-item @left="onLeft" @right="onRight" left-color="green" right-color="red">
-                                    <template v-slot:left>
-                                    <div class="row items-center">
-                                        <q-icon left name="edit" /> Edit
-                                    </div>
-                                    </template>
-                                    <template v-slot:right>
-                                    <div class="row items-center">
-                                        Hapus <q-icon right name="delete" />
-                                    </div>
-                                    </template>
-                                <q-item clickable v-ripple class="q-pa-none">
-                                    <q-item-section >
-                                        <div class="row">
-                                            <div class="col-2 q-mr-sm">
-                                                <q-avatar rounded>
-                                                    <img src="https://cdn.quasar.dev/img/mountains.jpg" draggable="false">
-                                                </q-avatar>
-                                            </div>
-                                            <div class="col-9">
-                                                <span class="text-bold ellipsis-2-lines">
-                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="row justify-between q-mt-sm" style="margin-bottom:-20px;">
-                                            <div class="col-4">Total : 10</div>
-                                            <div class="col-6 text-right">Rp 100.000</div>
-                                        </div>
-                                    </q-item-section>
-                                </q-item>
-                                </q-slide-item>
-                                <q-separator spaced/>
-                            </div>
-                        </q-list>
-                    </q-scroll-area>
-                </div>
-                <div>
-                    <div class="row justify-between q-mt-md">
-                        <div class="col-4">Subtotal</div>
-                        <div class="col-6 text-right">Rp 100.000</div>
-                    </div>
-                    <div class="row justify-between">
-                        <div class="col-4">10% Pajak</div>
-                        <div class="col-6 text-right">Rp 10.000</div>
-                    </div>
-                    <q-separator spaced inset />
-                    <div class="row justify-between">
-                        <div class="text-bold col-4">TOTAL</div>
-                        <div class="text-bold col-6 text-right">Rp 1.110.000.000</div>
-                        <q-btn color="primary" label="Bayar" no-caps class="btn-radius col-12 q-mt-md" unelevated/>
-                    </div>
-                </div>
-            </div>
-        </q-drawer>
-
-        <q-page-container>
-            <q-page class="bg-secondary" padding>
+    <q-page class="bg-secondary" padding>
                     <div class="row justify-between">
             <div class=" text-h4 col-4 text-bold">Pilih Kategori</div>
             <q-input filled bottom-slots v-model="search" type="text" label="Search" class="col-3" bg-color="white">
@@ -188,7 +55,7 @@
                                         <q-icon name="remove" />
                                     </div>
                                     </q-btn>
-                                    <span class="q-mx-sm text-h6">1</span>
+                                    <span class="q-mx-sm text-h6">10</span>
                                     <q-btn 
                                     no-caps unelevated
                                     style="width:25px;height:25px;border-radius:20px;background:#F7F2F2;" 
@@ -258,9 +125,6 @@
         
                     <div class="text-primary">@Copyright - Fajar Ilham Rosi - 2021 - POS Busana Muslim</div>
             </q-page>
-        </q-page-container>
-
-    </q-layout>
 </template>
 
 <script>

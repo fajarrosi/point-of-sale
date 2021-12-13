@@ -128,6 +128,13 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 
 **Today's Progress**: 
 - Tahap Elaboration - Implementation (Desain Tampilan - Kasir) (Update)
+### Day 13 (12 Desember 2021)
+
+**Today's Planning**: 
+- Tahap Elaboration - Implementation (Desain Tampilan - Kasir).
+
+**Today's Progress**: 
+- Tahap Elaboration - Implementation (Desain Tampilan - Kasir) (Update)
 
 
 
