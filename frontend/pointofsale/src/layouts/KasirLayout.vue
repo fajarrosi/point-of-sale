@@ -16,7 +16,7 @@ import { ref,onBeforeUnmount } from 'vue'
 import { useQuasar } from 'quasar'
 export default {
     components:{
-        'sidebar' : require('components/kasir/Sidebar.vue').default,
+        'sidebar' : require('components/Sidebar.vue').default,
         'keranjang' : require('components/kasir/Keranjang.vue').default
     },
   setup () {
