@@ -1,7 +1,7 @@
 <template>
     <q-drawer v-model="sidebar" 
-            :width="90"
-            :breakpoint="500"
+            :width="100"
+            :breakpoint="300"
         >
         <div class="sidebar">
             <div class="row">
@@ -13,7 +13,7 @@
                     <q-list>
                         <q-item v-if="$route.name === 'kasir'" class="q-pb-md">
                             <q-item-section>
-                                <q-btn :color="$route.name === 'kasir' ? 'primary' :'white'" no-caps style="width:60px;height:60px;border-radius:10px;" unelevated >
+                                <q-btn :color="$route.name === 'kasir' ? 'primary' :'white'" no-caps style="width:70px;height:60px;border-radius:10px;" unelevated >
                                     <div class="row items-center">
                                         <q-icon name="home_max" class="col-12"/>
                                         <div class="text-center col-12">
@@ -25,7 +25,7 @@
                         </q-item>
                         <q-item v-if="$route.name === 'kasir'" class="q-pt-none">
                             <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:60px;border-radius:10px;" push flat @click="$emit('update:keranjang',!keranjang)">
+                                    <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" push flat @click="$emit('update:keranjang',!keranjang)">
                                         <div class="row items-center">
                                             <q-icon name="shopping_cart" class="col-12"/>
                                             <div class="text-center col-12">
@@ -39,7 +39,7 @@
 
                         <q-item v-if="$route.meta.manajer" >
                                 <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:60px;border-radius:10px;" unelevated :flat="$route.name === 'data kasir' ? false : true" @click="$router.push({name:'data kasir'})">
+                                    <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" unelevated :flat="$route.name === 'Data Kasir' ? false : true" @click="$router.push({name:'Data Kasir'})">
                                         <div class="row items-center">
                                             <q-icon name="home_max" class="col-12"/>
                                             <div class="text-center col-12">
@@ -52,7 +52,7 @@
 
                             <q-item v-if="$route.meta.manajer" class="q-pt-none">
                                 <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:60px;border-radius:10px;" unelevated :flat="$route.name === 'data supplier' ? false : true" @click="$router.push({name:'data supplier'})">
+                                    <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" unelevated :flat="$route.name === 'Data Supplier' ? false : true" @click="$router.push({name:'Data Supplier'})">
                                         <div class="row items-center">
                                             <q-icon name="home_max" class="col-12"/>
                                             <div class="text-center col-12">
@@ -64,7 +64,7 @@
                             </q-item>
                             <q-item v-if="$route.meta.manajer" class="q-pt-none">
                                 <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:60px;border-radius:10px;" unelevated :flat="$route.name === 'stok produk' ? false : true" @click="$router.push({name:'stok produk'})" >
+                                    <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" unelevated :flat="$route.name === 'stok produk' ? false : true" @click="$router.push({name:'stok produk'})" >
                                         <div class="row items-center">
                                             <q-icon name="home_max" class="col-12"/>
                                             <div class="text-center col-12">
@@ -76,7 +76,7 @@
                             </q-item>
                             <q-item v-if="$route.meta.manajer" class="q-pt-none">
                                 <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:60px;border-radius:10px;" unelevated :flat="$route.name === 'cetak penjualan' ? false : true" @click="$router.push({name:'cetak penjualan'})"  >
+                                    <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" unelevated :flat="$route.name === 'cetak penjualan' ? false : true" @click="$router.push({name:'cetak penjualan'})"  >
                                         <div class="row items-center">
                                             <q-icon name="home_max" class="col-12"/>
                                             <div class="text-center col-12">
@@ -88,7 +88,7 @@
                             </q-item>
                             <q-item v-if="$route.meta.manajer" class="q-pt-none">
                                 <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:60px;border-radius:10px;" unelevated :flat="$route.name === 'cetak pembelian' ? false : true" @click="$router.push({name:'cetak pembelian'})" >
+                                    <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" unelevated :flat="$route.name === 'cetak pembelian' ? false : true" @click="$router.push({name:'cetak pembelian'})" >
                                         <div class="row items-center">
                                             <q-icon name="home_max" class="col-12"/>
                                             <div class="text-center col-12">
@@ -115,122 +115,7 @@
             </div>
         </div>
 
-            <!-- <q-scroll-area class="fit">
-                <q-list padding>
-                    <q-item clickable v-ripple>
-                        <q-item-section class="text-primary text-bold text-center text-h6">
-                            POS
-                        </q-item-section>
-                    </q-item>
-
-                    <q-separator />
-
-                    <q-item>
-                        <q-item-section>
-                            <q-btn color="primary" no-caps style="width:60px;height:60px;border-radius:10px;" unelevated >
-                                <div class="row items-center">
-                                    <q-icon name="home_max" class="col-12"/>
-                                    <div class="text-center col-12">
-                                        Kasir
-                                    </div>
-                                </div>
-                            </q-btn>
-                        </q-item-section>
-                    </q-item>
-
-                    <q-item v-if="$route.name === 'manajer'">
-                        <q-item-section>
-                            <q-btn color="primary" no-caps style="width:60px;border-radius:10px;" unelevated flat >
-                                <div class="row items-center">
-                                    <q-icon name="home_max" class="col-12"/>
-                                    <div class="text-center col-12">
-                                        Data Kasir
-                                    </div>
-                                </div>
-                            </q-btn>
-                        </q-item-section>
-                    </q-item>
-
-                    <q-item v-if="$route.name === 'manajer'">
-                        <q-item-section>
-                            <q-btn color="primary" no-caps style="width:60px;border-radius:10px;" unelevated flat >
-                                <div class="row items-center">
-                                    <q-icon name="home_max" class="col-12"/>
-                                    <div class="text-center col-12">
-                                        Data Supplier
-                                    </div>
-                                </div>
-                            </q-btn>
-                        </q-item-section>
-                    </q-item>
-                    <q-item v-if="$route.name === 'manajer'">
-                        <q-item-section>
-                            <q-btn color="primary" no-caps style="width:60px;border-radius:10px;" unelevated flat >
-                                <div class="row items-center">
-                                    <q-icon name="home_max" class="col-12"/>
-                                    <div class="text-center col-12">
-                                        Data Produk
-                                    </div>
-                                </div>
-                            </q-btn>
-                        </q-item-section>
-                    </q-item>
-                    <q-item v-if="$route.name === 'manajer'">
-                        <q-item-section>
-                            <q-btn color="primary" no-caps style="width:60px;border-radius:10px;" unelevated flat >
-                                <div class="row items-center">
-                                    <q-icon name="home_max" class="col-12"/>
-                                    <div class="text-center col-12">
-                                        Cetak Penjualan
-                                    </div>
-                                </div>
-                            </q-btn>
-                        </q-item-section>
-                    </q-item>
-                    <q-item v-if="$route.name === 'manajer'">
-                        <q-item-section>
-                            <q-btn color="primary" no-caps style="width:60px;border-radius:10px;" unelevated flat >
-                                <div class="row items-center">
-                                    <q-icon name="home_max" class="col-12"/>
-                                    <div class="text-center col-12">
-                                        Cetak Pembelian
-                                    </div>
-                                </div>
-                            </q-btn>
-                        </q-item-section>
-                    </q-item>
-
-                    <q-item>
-                        <q-item-section>
-                                <q-btn color="primary" no-caps style="width:60px;height:60px;border-radius:10px;" push flat @click="$emit('update:keranjang',!keranjang)">
-                                    <div class="row items-center">
-                                        <q-icon name="shopping_cart" class="col-12"/>
-                                        <div class="text-center col-12">
-                                            Keranjang
-                                        </div>
-                                    </div>
-                                    <q-badge color="red" floating>4</q-badge>
-                                </q-btn>
-                        </q-item-section>
-                    </q-item>
-                    <div class="absolute-bottom">
-                        <q-separator spaced/>
-                        <q-item>
-                            <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:60px;height:60px;border-radius:10px;" push flat>
-                                        <div class="row items-center">
-                                            <q-icon name="logout" class="col-12"/>
-                                            <div class="text-center col-12">
-                                                Logout
-                                            </div>
-                                        </div>
-                                    </q-btn>
-                            </q-item-section>
-                        </q-item>
-                    </div>
-
-                </q-list>
-            </q-scroll-area> -->
+            
         </q-drawer>
 </template>
 

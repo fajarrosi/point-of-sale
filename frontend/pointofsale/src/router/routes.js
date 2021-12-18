@@ -12,7 +12,7 @@ const routes = [
     component: ()=> import('pages/Login.vue')
   },
   {
-    path:'',
+    path:'/user',
     component:()=> import('layouts/KasirLayout.vue'),
     children:[
       {
@@ -27,7 +27,7 @@ const routes = [
       },
       {
         path:'/data-kasir',
-        name:'data kasir',
+        name:'Data Kasir',
         component:()=> import('pages/manajer/DataKasir.vue'),
         meta:{
           manajer:true
@@ -35,7 +35,7 @@ const routes = [
       },
       {
         path:'/data-supplier',
-        name:'data supplier',
+        name:'Data Supplier',
         component:()=> import('pages/manajer/DataSupplier.vue'),
         meta:{
           manajer:true

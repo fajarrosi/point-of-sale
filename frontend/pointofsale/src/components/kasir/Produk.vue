@@ -50,7 +50,7 @@
                         <q-btn 
                         unelevated
                         color="accent"
-                        class="q-mr-sm col-6"
+                        class="q-mr-sm col"
                         style="width:25px;height:25px;border-radius:20px;" 
                         >
                             <div class="row items-center">
@@ -60,7 +60,7 @@
                         <q-btn 
                         unelevated
                         color="primary"
-                        class="col-5"
+                        class="col"
                         style="width:25px;height:25px;border-radius:20px;"
                         flat 
                         >
@@ -68,12 +68,10 @@
                                 <span>M</span>
                             </div>
                         </q-btn>
-                    </div>
-                    <div class="row">
                         <q-btn 
                         unelevated
                         color="primary"
-                        class="q-mr-sm col-6"
+                        class="q-mr-sm col"
                         style="width:25px;height:25px;border-radius:20px;"
                         flat 
                         >
@@ -84,7 +82,7 @@
                         <q-btn 
                         unelevated
                         color="primary"
-                        class="col-5"
+                        class="col"
                         style="width:25px;height:25px;border-radius:20px;"
                         flat 
                         >

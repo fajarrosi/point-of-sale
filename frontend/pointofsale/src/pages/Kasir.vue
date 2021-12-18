@@ -1,34 +1,38 @@
 <template>
-    <q-page class="bg-secondary" padding>
-        <div class="header-kasir bg-secondary q-py-lg">
+    <div class="kasir">
+        <div class="header">
             <div class="row justify-between">
-                <div class=" text-h4 col-4 text-bold">Pilih Kategori</div>
-                <q-input filled bottom-slots v-model="search" type="text" label="Search" class="col-3" bg-color="white">
+                <div class="text-h6 col-4 text-bold">Pilih Kategori</div>
+                <q-input filled bottom-slots v-model="search" type="text" label="Search" class="col-3" bg-color="white" dense hidden-bottom-space>
                     <template v-slot:append>
                         <q-icon v-if="search !== ''" name="close" @click="search = ''" class="cursor-pointer" />
                         <q-btn round dense flat icon="search" />
                     </template>
                 </q-input>
             </div>
-            <div class="row">
-                <q-btn color="white" label="Semua" no-caps class="col text-black q-mr-sm " rounded dense unelevated/>
-                <q-btn color="white" label="kategori1" no-caps class="col text-black q-mr-sm " rounded dense unelevated/>
-                <q-btn color="white" label="kategori2" no-caps class="col text-black q-mr-sm " rounded dense unelevated/>
-                <q-btn color="white" label="kategori3" no-caps class="col text-black q-mr-sm " rounded dense unelevated/>
-                <q-btn color="white" label="kategori4" no-caps class="col text-black q-mr-sm " rounded dense unelevated/>
-                <q-btn color="white" label="kategori5" no-caps class="col text-black q-mr-sm " rounded dense unelevated/>
-                <q-btn color="white" label="kategori6" no-caps class="col text-black q-mr-sm " rounded dense unelevated/>
-                <q-btn color="white" label="kategori7" no-caps class="col text-black q-mr-sm " rounded dense unelevated/>
-            </div>
+            <q-scroll-area style="height:40px;max-width: 100%;">
+                <div class="row no-wrap justify-center">
+                    <q-btn color="white" label="Semua" no-caps class="text-black q-mr-md " rounded unelevated/>
+                    <q-btn color="white" label="kategori1" no-caps class="text-black q-mr-md " rounded unelevated/>
+                    <q-btn color="white" label="kategori2" no-caps class="text-black q-mr-md " rounded unelevated/>
+                    <q-btn color="white" label="kategori3" no-caps class="text-black q-mr-md " rounded unelevated/>
+                    <q-btn color="white" label="kategori4" no-caps class="text-black q-mr-md " rounded unelevated/>
+                    <q-btn color="white" label="kategori5" no-caps class="text-black q-mr-md " rounded unelevated/>
+                    <q-btn color="white" label="kategori6" no-caps class="text-black q-mr-md " rounded unelevated/>
+                    <q-btn color="white" label="kategori7" no-caps class="text-black q-mr-md " rounded unelevated/>
+                </div>
+            </q-scroll-area>
         </div>
-        <div class="row q-mb-lg">
-            <div class="col-3 q-pr-lg" v-for="n in 1" :key="n">
-                <produk />
-            </div>
+        <div >
+            <q-scroll-area class="fit">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 q-pr-lg" v-for="n in 20" :key="n">
+                        <produk />
+                    </div>
+                </div>
+            </q-scroll-area>
         </div>
-        
-                    <div class="text-primary">@Copyright - Fajar Ilham Rosi - 2021 - POS Busana Muslim</div>
-            </q-page>
+    </div>
 </template>
 
 <script>
