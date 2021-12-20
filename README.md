@@ -147,6 +147,18 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 - Tahap Elaboration - Implementation (Desain Tampilan - Kasir) (Update)
 - Tahap Elaboration - Implementation (Desain Tampilan - Manajer) (Update)
 
+### Day 15 (20 Desember 2021)
+
+**Today's Planning**: 
+- Tahap Elaboration - Implementation (Desain Tampilan - Kasir).
+- Tahap Elaboration - Implementation (Desain Tampilan - Manajer).
+- Update document 
+
+**Today's Progress**: 
+- Tahap Elaboration - Implementation (Desain Tampilan - Kasir) (Update)
+- Tahap Elaboration - Implementation (Desain Tampilan - Manajer) (Update)
+- Update document 
+
 
 
 ## License

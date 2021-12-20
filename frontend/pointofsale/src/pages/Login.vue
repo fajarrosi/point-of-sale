@@ -15,8 +15,8 @@
                         <q-card-section class="second-section" style="border-top-left-radius:20px;
     background:white;
     border-top-right-radius:20px;">
-                            <div class="text-center text-primary text-h6">Masuk</div>
-                            <div class="row justify-center">
+                            <div class="text-primary text-h6">Masuk</div>
+                            <div class="row">
                                 <q-input
                                     outlined 
                                     dense
@@ -27,11 +27,10 @@
                                     (val) => (val && val.length > 0) || 'Email tidak boleh kosong',val => validEmail(val)
                                     ]"
                                     type="email"
-                                    class="q-mb-sm col-6 btn-radius"
+                                    class="q-mb-sm col-12 btn-radius"
                                     bg-color="white"
                                     hide-bottom-space
                                 />
-                                <div class="col-12"></div>
                                 <q-input
                                     outlined 
                                     dense
@@ -42,11 +41,10 @@
                                     :rules="[
                                     (val) => (val && val.length > 0) || 'password tidak boleh kosong'
                                     ]"
-                                    class="q-mb-sm col-6 btn-radius"
+                                    class="q-mb-sm col-12 btn-radius"
                                     bg-color="white"
                                     hide-bottom-space
                                 />
-                                <div class="col-12"></div>
                                 <q-btn color="primary" label="Masuk" @click="onClick" no-caps class="col-6 btn-radius"/>
                             </div>
                         </q-card-section>

@@ -1,8 +1,8 @@
 <template>
     <div class="manajer">
-        <q-btn color="primary" icon="add" label="Cetak Pembelian" @click="onClick" no-caps rounded unelevated/>
+        <q-btn color="primary" icon="add" label="Cetak Pembelian" @click="onClick" no-caps class="btn-radius" unelevated/>
         <q-table
-            class="my-sticky-header-table q-mt-md"
+            class="my-sticky-header-table q-mt-md btn-radius"
             title="Data Pembelian"
             :rows="rows"
             :columns="columns"

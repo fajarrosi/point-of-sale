@@ -1,8 +1,8 @@
 <template>
     <div class="manajer">
-        <q-btn color="primary" icon="add" label="Tambah Produk" @click="onClick" no-caps rounded unelevated/>
+        <q-btn color="primary" icon="add" label="Tambah Produk" @click="onClick" no-caps class="btn-radius" unelevated/>
         <q-table
-            class="my-sticky-header-table q-mt-md"
+            class="my-sticky-header-table q-mt-md btn-radius"
             title="Stok Produk"
             :rows="rows"
             :columns="columns"
