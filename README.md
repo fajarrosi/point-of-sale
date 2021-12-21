@@ -159,6 +159,14 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 - Tahap Elaboration - Implementation (Desain Tampilan - Manajer) (Update)
 - Update document 
 
+### Day 16 (21 Desember 2021)
+
+**Today's Planning**: 
+- Login dan Kasir API 
+
+**Today's Progress**: 
+- Login dan Kasir API (70%)
+
 
 
 ## License
