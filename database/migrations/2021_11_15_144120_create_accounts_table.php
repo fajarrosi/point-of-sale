@@ -15,13 +15,17 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
+            $table->string('email')->nullable()->unique();
             $table->string('name');
             $table->string('telephone')->nullable();
             $table->mediumText('address')->nullable();
-            $table->foreignId('user_id')
-                ->constrained()
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+            $table->string('verification_code')->nullable();
+            $table->boolean('is_verified')->default(false);
+            $table->foreign('email')
+                    ->references('email')
+                    ->on('users')
+                    ->onUpdate('cascade')
+                    ->onDelete('cascade');
             $table->enum('role',['manajer','kasir']);
             $table->timestamps();
         });

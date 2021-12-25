@@ -5,25 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class Product extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'email',
-        'telephone',
-        'address',
-        'role',
-        'verification_code',
-        'is_verified'
+        'product',
+        'category_id',
     ];
     protected $hidden = [
         'created_at',
         'updated_at',
     ];
 
-    public function user()
+    public function price()
     {
-        return $this->belongsTo(User::class,'email', 'email');
+        return $this->hasMany(ProductPrice::class,'product_id','id');
     }
 }

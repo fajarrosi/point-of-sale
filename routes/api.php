@@ -3,7 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Admin\DataKasirController;
+use App\Http\Controllers\Admin\KasirController;
+use App\Http\Controllers\Admin\SupplierController;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,17 +18,42 @@ use App\Http\Controllers\Admin\DataKasirController;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-Route::group(['middleware' => 'api', 'prefix' => 'auth'],function($router){
+Route::group(['middleware' => 'api'],function($router){
     Route::post('login',[AuthController::class,'Login']);
+    Route::post('register',[AuthController::class,'Register']);
     Route::post('logout',[AuthController::class,'Logout']);
-});
+    Route::post('verify',[AuthController::class,'EmailVerified']);
+    Route::get('resend',[AuthController::class,'ResendOTP']);
+    Route::post('forgot',[AuthController::class,'forgotPassword']);
+    Route::post('check-password',[AuthController::class,'checkOldPassword']);
+    Route::post('change-password',[AuthController::class,'changePassword']);
 
-Route::group(['middleware' => 'api', 'prefix' => 'admin'],function($router){
+    //kasir
+    Route::group(['prefix' => 'kasir'],function($router){
+        Route::get('',[KasirController::class,'getKasir']);
+        Route::get('{id}',[KasirController::class,'getKasirById']);
+        Route::post('add',[KasirController::class,'addKasir']);
+        Route::post('accept',[KasirController::class,'acceptKasir']);
+        Route::post('decline',[KasirController::class,'declineKasir']);
+    });
 
-    // data kasir
-    Route::get('data-kasir',[DataKasirController::class,'kasir']);
-    Route::get('kasir/{id}',[DataKasirController::class,'getKasirById']);
+    // Supplier
+    Route::group(['prefix' => 'supplier'],function($router){
+        Route::get('',[SupplierController::class,'index']);
+        Route::post('store',[SupplierController::class,'store']);
+        Route::get('{id}',[SupplierController::class,'show']);
+        Route::post('update',[SupplierController::class,'update']);
+        Route::post('destroy',[SupplierController::class,'destroy']);
+    });
+
+    // Product
+    Route::group(['prefix' => 'product'],function($router){
+        Route::get('',[ProductController::class,'index']);
+        Route::get('category',[ProductController::class,'getCategory']);
+        Route::get('size',[ProductController::class,'getSize']);
+        Route::post('store',[ProductController::class,'store']);
+        Route::get('{id}',[ProductController::class,'show']);
+        Route::post('destroy',[ProductController::class,'destroy']);
+    });
+    
 });

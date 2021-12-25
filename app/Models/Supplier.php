@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class Supplier extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -13,17 +13,9 @@ class Account extends Model
         'email',
         'telephone',
         'address',
-        'role',
-        'verification_code',
-        'is_verified'
     ];
     protected $hidden = [
         'created_at',
         'updated_at',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class,'email', 'email');
-    }
 }

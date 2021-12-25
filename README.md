@@ -167,6 +167,14 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 **Today's Progress**: 
 - Login dan Kasir API (70%)
 
+### Day 17 (25 Desember 2021)
+
+**Today's Planning**: 
+- Supplier, Product, Register, Verify OTP, change password, forgot password, resend otp API
+
+**Today's Progress**: 
+- Supplier, Product, Register, Verify OTP, change password, forgot password, resend otp API (100%)
+
 
 
 ## License

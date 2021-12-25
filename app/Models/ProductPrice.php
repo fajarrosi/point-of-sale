@@ -5,25 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class ProductPrice extends Model
 {
     use HasFactory;
+    protected $table = 'product_price';
     protected $fillable = [
-        'name',
-        'email',
-        'telephone',
-        'address',
-        'role',
-        'verification_code',
-        'is_verified'
+        'product_id',
+        'size_id',
+        'stock',
+        'price',
     ];
     protected $hidden = [
         'created_at',
         'updated_at',
+        'id',
+        'product_id'
     ];
 
-    public function user()
+    public function size()
     {
-        return $this->belongsTo(User::class,'email', 'email');
+        return $this->belongsTo(Size::class,'size_id','id');
     }
 }
