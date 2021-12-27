@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Traits\GlobalFunction;
 use App\Models\Sale;
 use App\Models\Invoice;
 use App\Models\ProductPrice;
@@ -11,7 +10,10 @@ use App\Http\Requests\SaleRequest;
 
 class SaleController extends Controller
 {
-    use GlobalFunction;
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +56,7 @@ class SaleController extends Controller
                 $productprice = ProductPrice::where(['product_id' => $dataSale[$i]['product_id'],'size_id' => $dataSale[$i]['size_id']])->decrement('stock',$dataSale[$i]['quantity']);
             }
         }
-        return $invoice ? $this->handleResponse(200,'success create sale') : $this->handleResponse(400,'failed create sale');
+        return $invoice ? handleResponse(200,'success create sale') : handleResponse(400,'failed create sale');
 
     }
 

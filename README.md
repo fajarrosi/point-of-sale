@@ -179,9 +179,13 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 
 **Today's Planning**: 
 - Sale API
+- Update Document
+- Refactoring code
 
 **Today's Progress**: 
 - Sale API (100%)
+- Update Document (100%)
+- Refactoring code (100%)
 
 
 

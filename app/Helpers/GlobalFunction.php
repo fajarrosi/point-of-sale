@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Traits;
+if (!function_exists('handleResponse')) {
 
-trait GlobalFunction{
-
-    public function handleResponse($httpStatus = 200, $message = 'success', $data = null)
+    function handleResponse($httpStatus = 200, $message = 'success', $data = null)
     {
         $response = [
             'status' => $httpStatus == 200 ? "Success" : "Error",
@@ -14,8 +12,10 @@ trait GlobalFunction{
 
         return response()->json($response,$httpStatus);
     }
+}
 
-    public function generateRandomInteger($length)
+if (!function_exists('generateRandomInteger')) {
+    function generateRandomInteger($length)
 	{
         $characters = '0123456789';
         
@@ -26,8 +26,10 @@ trait GlobalFunction{
         }
         return $randomString;
 	}
+}
 
-    public function generateRandomString($length)
+if (!function_exists('generateRandomString')) {
+    function generateRandomString($length)
 	{
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         $charactersLength = strlen($characters);
