@@ -5,21 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Account extends Model
+class Sale extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'email',
-        'telephone',
-        'address',
-        'role',
-        'verification_code',
-        'is_verified'
+        'invoice_id',
+        'product_id',
+        'size_id',
+        'sub_total',
+        'unit_price',
+        'quantity',
     ];
     protected $hidden = [
         'created_at',
         'updated_at',
     ];
-
 }

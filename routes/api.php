@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\Admin\KasirController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\ProductController;
@@ -54,6 +55,10 @@ Route::group(['middleware' => 'api'],function($router){
         Route::post('store',[ProductController::class,'store']);
         Route::get('{id}',[ProductController::class,'show']);
         Route::post('destroy',[ProductController::class,'destroy']);
+    });
+
+    Route::group(['prefix' => 'sale'],function($router){
+        Route::post('store',[SaleController::class,'store']);
     });
     
 });
