@@ -2,15 +2,19 @@
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/Index.vue') }
+    component: () => import('layouts/AuthLayout.vue'),
+    children:[
+      {path:'',component: () => import('pages/auth/Login.vue')},
+      {path:'register',component:() => import('pages/auth/Register.vue')},
+      {path:'otp',component:() => import('pages/auth/Otp.vue')},
+      {path:'forgot',component:() => import('pages/auth/Forgot.vue')},
+      {path:'forgot-success',component:() => import('pages/auth/ForgotSuccess.vue')},
     ]
   },
-  {
-    path:'/login',
-    component: ()=> import('pages/Login.vue')
-  },
+  // {
+  //   path:'/login',
+  //   component: ()=> import('pages/Login.vue')
+  // },
   {
     path:'/user',
     component:()=> import('layouts/KasirLayout.vue'),

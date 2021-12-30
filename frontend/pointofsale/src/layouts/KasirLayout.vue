@@ -5,7 +5,7 @@
         <keranjang v-model:drawer="keranjang" v-if="keranjang"/>
 
         <q-page-container>
-          <q-page padding class="bg-secondary">
+          <q-page padding class="bg-secondary kasir-layout">
               <router-view/>
               <div class="text-primary q-pt-sm">@Copyright - Fajar Ilham Rosi - 2021 - POS Busana Muslim</div>
           </q-page>

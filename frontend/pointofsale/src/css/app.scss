@@ -1,4 +1,15 @@
 // app global css in SCSS form
+.base-auth{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows:80px auto 70px;
+}
+
+.q-field--outlined .q-field__control{
+    border-radius: 10px;
+}
+
 .btn-radius{
     border-radius: 10px;
 }
@@ -25,7 +36,7 @@
     grid-template-rows: 50px auto 70px;
 }
 
-.q-page{
+.kasir-layout{
     height: 100%;
     width: 100%;
     display: grid;

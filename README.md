@@ -187,6 +187,23 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 - Update Document (100%)
 - Refactoring code (100%)
 
+### Day 19 (30 Desember 2021)
+
+**Today's Planning**: 
+- Update Page Login
+- Update Page Register
+- Update Page Forgot Password
+- Update Page Forgot Password Success
+- Update Page OTP
+
+**Today's Progress**: 
+- Update Page Login (100%)
+- Update Page Register (100%)
+- Update Page Forgot Password (100%)
+- Update Page Forgot Password Success (100%)
+- Update Page OTP (100%)
+
+
 
 
 ## License
