@@ -4,7 +4,7 @@ const routes = [
     path: '/',
     component: () => import('layouts/AuthLayout.vue'),
     children:[
-      {path:'',component: () => import('pages/auth/Login.vue')},
+      {path:'',name:'login',component: () => import('pages/auth/Login.vue')},
       {path:'register',component:() => import('pages/auth/Register.vue')},
       {path:'otp',component:() => import('pages/auth/Otp.vue')},
       {path:'forgot',component:() => import('pages/auth/Forgot.vue')},
@@ -19,15 +19,15 @@ const routes = [
     path:'/user',
     component:()=> import('layouts/KasirLayout.vue'),
     children:[
+      { 
+        path:'/dashboard',
+        name:'dashboard',
+        component:()=>import('pages/Dashboard.vue')
+      },
       {
         path:'/kasir',
         name:'kasir',
         component: () => import('pages/Kasir.vue')
-      },
-      {
-        path:'/manajer',
-        name:'manajer',
-        component:() => import('pages/Manajer.vue')
       },
       {
         path:'/data-kasir',
@@ -69,7 +69,10 @@ const routes = [
           manajer:true
         }
       },
-    ]
+    ],
+    meta:{
+      requireAuth:true
+    }
   },
  
   {

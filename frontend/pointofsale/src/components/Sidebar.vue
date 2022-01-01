@@ -104,7 +104,7 @@
             <!-- </div> -->
 
             <div class="row justify-center items-center">
-                <q-btn color="primary" no-caps style="border-radius:10px;" push flat class="col-10">
+                <q-btn color="primary" no-caps style="border-radius:10px;" push flat class="col-10" @click="$store.dispatch('auth/logout')">
                     <div class="row items-center">
                         <q-icon name="logout" class="col-12"/>
                         <div class="text-center col-12">
@@ -132,7 +132,8 @@ export default {
     methods:{
         bukaKeranjang(){
 
-        }
+        },
+       
     }
 }
 </script>

@@ -1,0 +1,12 @@
+<template>
+    <div class="manajer">
+        <h5>Dashboard</h5>
+    </div>
+</template>
+
+<script>
+
+export default {
+  
+}
+</script>

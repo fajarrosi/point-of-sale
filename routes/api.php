@@ -22,7 +22,7 @@ use App\Http\Controllers\Admin\ProductController;
 Route::group(['middleware' => 'api'],function($router){
     Route::post('login',[AuthController::class,'Login']);
     Route::post('register',[AuthController::class,'Register']);
-    Route::post('logout',[AuthController::class,'Logout']);
+    Route::get('logout',[AuthController::class,'Logout']);
     Route::post('verify',[AuthController::class,'EmailVerified']);
     Route::get('resend',[AuthController::class,'ResendOTP']);
     Route::post('forgot',[AuthController::class,'forgotPassword']);

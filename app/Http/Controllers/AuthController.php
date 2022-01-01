@@ -13,6 +13,7 @@ use App\Mail\Resendotp;
 use App\Mail\ForgotPassword;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 class AuthController extends Controller
 {
@@ -28,6 +29,7 @@ class AuthController extends Controller
         }else{
             $data = [
                 'access_token' => $token,
+                'user' => auth()->user()->account
             ];
             return handleResponse(200, 'Success Login',$data);
         }
@@ -42,22 +44,26 @@ class AuthController extends Controller
     public function Register(RegisterRequest $request)
     {
         $user = $request->only(['email','password']);
-        $createUser = User::create(['email'=>$request->email,'password'=>bcrypt($request->password)]);
-
         $account = $request->except('password');
         $account['role'] = 'kasir';
-        $account['verification_code'] = generateRandomInteger(6);
-
-        $createUser->account()->create($account);
-
-        $password = $request->password;
-        Mail::to($createUser->email)->send(new SendOTP($createUser,$password));
-
-        $data = [
+        $account['verification_code'] = generateRandomInteger(4);
+        DB::beginTransaction();
+        try {
+            $createUser = User::create(['email'=>$request->email,'password'=>bcrypt($request->password)]);
+            $createUser->account()->create($account);
+            DB::commit();
+            $password = $request->password;
+            // Mail::to($createUser->email)->send(new SendOTP($createUser,$password));
+            $data = [
                 'access_token' => auth()->attempt($request->only('email','password')),
-        ];
+                'user' => auth()->user()->account
+            ];
+            return handleResponse(200,'success register',$data);
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return handleResponse(400,$th->getMessage());
+        }
 
-        return $createUser ? handleResponse(200,'success register',$data) : handleResponse(400,'failed register');
     }
 
     public function EmailVerified(Request $request)
@@ -75,7 +81,7 @@ class AuthController extends Controller
     public function ResendOTP()
     {
         $email = auth()->user()->email;
-        $newOtp = generateRandomInteger(6);
+        $newOtp = generateRandomInteger(4);
 
         $account = Account::where('email',$email)->update(['verification_code' => $newOtp]);
         $data = Account::where('email',$email)->first();
@@ -88,9 +94,14 @@ class AuthController extends Controller
     {
         $email = $request->email;
         $password = generateRandomString(8);
-        $user = User::where('email',$email)->update(['password'=> bcrypt($password)]);
-        Mail::to($email)->send(new ForgotPassword($password));
-        return $user ? handleResponse(200,'success get new password') : handleResponse(400,'failed get new password');
+        $user = User::where('email',$email)->first();
+        if ($user) {
+            $user->update(['password'=> bcrypt($password)]);
+            Mail::to($email)->send(new ForgotPassword($password));
+            return handleResponse(200,'success get new password') ;
+        }else{
+            return handleResponse(400,'failed, your email is not found');
+        }
     }
 
     public function checkOldPassword(Request $request)

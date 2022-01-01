@@ -203,6 +203,20 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 - Update Page Forgot Password Success (100%)
 - Update Page OTP (100%)
 
+### Day 20 (1 Januari 2022)
+
+**Today's Planning**: 
+- Update Page Login , integratio with login api
+- Update Page Register, integratio with register api
+- Update Page Forgot Password, integratio with password api
+- Fix register API
+
+**Today's Progress**: 
+- Update Page Login (100%)
+- Update Page Register (100%)
+- Update Page Forgot Password (100%)
+- Fix register API (100%)
+
 
 
 
