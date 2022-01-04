@@ -17,35 +17,7 @@
 
 <script>
 export default {
-    data(){
-        return{
-            otp1:'',
-            otp2:'',
-            otp3:'',
-            otp4:'',
-        }
-    },
-    methods:{
-        nextSiblings(event){
-            console.log('ere',event)
-            let grandparent = event.target.parentNode.parentNode.parentNode.parentNode
-            if(event.keyCode === 8){
-                let ps = grandparent.previousElementSibling
-                if(ps){
-                    if(ps.children[0]){
-                        let prev = ps.children[0].children[0].children[0].children[0]
-                    prev.focus()
-                    }
-                }
-            }else{
-                let ns = grandparent.nextElementSibling
-                if(ns){
-                    let next = ns.children[0].children[0].children[0].children[0]
-                    next.focus()
-                }
-            }
-        }
-    },
+    
 }
 </script>
 

@@ -11,10 +11,6 @@ const routes = [
       {path:'forgot-success',component:() => import('pages/auth/ForgotSuccess.vue')},
     ]
   },
-  // {
-  //   path:'/login',
-  //   component: ()=> import('pages/Login.vue')
-  // },
   {
     path:'/user',
     component:()=> import('layouts/KasirLayout.vue'),
@@ -71,7 +67,8 @@ const routes = [
       },
     ],
     meta:{
-      requireAuth:true
+      requireAuth:true,
+      userverified:true
     }
   },
  

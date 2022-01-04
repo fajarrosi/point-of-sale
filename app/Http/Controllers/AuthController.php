@@ -29,7 +29,7 @@ class AuthController extends Controller
         }else{
             $data = [
                 'access_token' => $token,
-                'user' => auth()->user()->account
+                'user' => auth()->user()->load(['account'])
             ];
             return handleResponse(200, 'Success Login',$data);
         }
@@ -56,7 +56,7 @@ class AuthController extends Controller
             // Mail::to($createUser->email)->send(new SendOTP($createUser,$password));
             $data = [
                 'access_token' => auth()->attempt($request->only('email','password')),
-                'user' => auth()->user()->account
+                'user' => auth()->user()->load(['account'])
             ];
             return handleResponse(200,'success register',$data);
         } catch (\Throwable $th) {
@@ -70,12 +70,22 @@ class AuthController extends Controller
     {
         $email = auth()->user()->email;
         $verificationCode = $request->otp;
-
-        $account = Account::where('email', $email)
-            ->where('verification_code', $verificationCode)->update(['verification_code' =>null]);
-        $user = User::where('email', $email)->update(['email_verified_at' => now()]);
-
-        return $account ? handleResponse(200,'success verify otp') : handleResponse(400,'failed verify otp');
+        DB::beginTransaction();
+        try {
+            $account = Account::where('email', $email)->where('verification_code', $verificationCode)->first();
+            if ($account) {
+                $account->update(['verification_code' =>null]);
+                $user = User::where('email', $email)->update(['email_verified_at' => now()]);
+                DB::commit();
+                return handleResponse(200,'success verify otp');
+            }else{
+                throw new \Exception("fail verify otp", 1);
+                
+            }
+        } catch (\Exception $th) {
+            DB::rollback();
+            return handleResponse(400,$th->getMessage());
+        }
     }
 
     public function ResendOTP()

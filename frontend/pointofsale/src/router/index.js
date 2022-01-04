@@ -28,8 +28,10 @@ export default route(function ( { store }) {
   Router.beforeEach((to,from,next) => {
     if (to.matched.some(record => record.meta.requireAuth) && !store.getters['auth/isAuthenticated']) {
       next({ name: 'login' })
-    } else {
-      next()
+    } else if(to.meta.userverified && !store.getters['auth/isVerifiedemail']){
+      next('/otp')
+    }else{
+        next()
     }
   })
 

@@ -90,7 +90,7 @@
 </template>
 
 <script>
-import config from '../../common/config'
+import config from 'src/common/config'
 export default {
     mixins: [config],
     data(){

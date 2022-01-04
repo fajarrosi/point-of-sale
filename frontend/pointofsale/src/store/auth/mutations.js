@@ -7,3 +7,7 @@ export function setLogout(state){
     state.user = ''
     state.access_token = ''
 }
+
+export function setEmailVerified(state){
+    state.user.email_verified_at = new Date()
+}

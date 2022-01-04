@@ -206,9 +206,9 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 ### Day 20 (1 Januari 2022)
 
 **Today's Planning**: 
-- Update Page Login , integratio with login api
-- Update Page Register, integratio with register api
-- Update Page Forgot Password, integratio with password api
+- Update Page Login , integration with login api
+- Update Page Register, integration with register api
+- Update Page Forgot Password, integration with password api
 - Fix register API
 
 **Today's Progress**: 
@@ -216,6 +216,17 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 - Update Page Register (100%)
 - Update Page Forgot Password (100%)
 - Fix register API (100%)
+
+### Day 21 (4 Januari 2022)
+
+**Today's Planning**: 
+- fixing otp api 
+- Integration page otp with otp api
+
+
+**Today's Progress**: 
+- fixing otp api (100%)
+- Integration page otp with otp api (100%)
 
 
 

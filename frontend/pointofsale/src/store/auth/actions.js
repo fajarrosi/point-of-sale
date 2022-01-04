@@ -55,3 +55,17 @@ export function register(context,payload){
         })
     })
 }
+
+export function otp(context,payload) {
+    return new Promise((resolve,reject)=>{
+        api.post('verify',payload,header(context.state.access_token))
+        .then(response=>{
+            context.commit('setEmailVerified')
+            this.$router.push('/dashboard')
+            resolve(response)
+        })
+        .catch(error=>{
+            reject(error)
+        })
+    })
+}
