@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import produk from './produk'
 import auth from './auth'
+import datakasir from './datakasir'
 
 /*
  * If not building with SSR mode, you can
@@ -17,7 +18,8 @@ export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
       produk,
-      auth
+      auth,
+      datakasir
     },
     plugins: [createPersistedState()],
     // enable strict mode (adds overhead!)

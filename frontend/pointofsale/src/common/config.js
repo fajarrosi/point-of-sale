@@ -5,6 +5,13 @@
 // export { validemail };
 
 export default{
+    data(){
+        return {
+            load:false,
+            btndisabled:false,
+            error:''
+        }
+    },
     methods:{
         validemail(email){
             return email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) ? true : 'Email tidak valid';

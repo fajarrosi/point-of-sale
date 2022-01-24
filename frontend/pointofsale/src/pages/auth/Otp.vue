@@ -65,9 +65,6 @@ export default {
                 otp2:'',
                 otp3:'',
                 otp4:'',
-                load:false,
-                btndisabled:false,
-                error:''
         }
     },
     computed:{

@@ -228,8 +228,13 @@ Dokumen Tahapan pengembangan Projek -- https://docs.google.com/document/d/1XHd_L
 - fixing otp api (100%)
 - Integration page otp with otp api (100%)
 
+### Day 22 (25 Januari 2022)
 
+**Today's Planning**: 
+- integration page kasir and supplier with api 
 
+**Today's Progress**: 
+- integration page kasir and supplier with api (30%)
 
 ## License
 

@@ -17,20 +17,35 @@ const routes = [
     children:[
       { 
         path:'/dashboard',
-        name:'dashboard',
-        component:()=>import('pages/Dashboard.vue')
+        name:'Dashboard',
+        component:()=>import('pages/Dashboard.vue'),
+        meta:{
+          access:{
+            kasir:true,
+            manajer:true
+          }
+        }
       },
       {
         path:'/kasir',
-        name:'kasir',
-        component: () => import('pages/Kasir.vue')
+        name:'Kasir',
+        component: () => import('pages/Kasir.vue'),
+        meta:{
+          access:{
+            kasir:true,
+            manajer:false
+          }
+        }
       },
       {
         path:'/data-kasir',
         name:'Data Kasir',
         component:()=> import('pages/manajer/DataKasir.vue'),
         meta:{
-          manajer:true
+          access:{
+            kasir:false,
+            manajer:true
+          }
         }
       },
       {
@@ -38,31 +53,43 @@ const routes = [
         name:'Data Supplier',
         component:()=> import('pages/manajer/DataSupplier.vue'),
         meta:{
-          manajer:true
+          access:{
+            kasir:false,
+            manajer:true
+          }
         }
       },
       {
         path:'/stok-produk',
-        name:'stok produk',
+        name:'Stok Produk',
         component:()=> import('pages/manajer/StokProduk.vue'),
         meta:{
-          manajer:true
+          access:{
+            kasir:false,
+            manajer:true
+          }
         }
       },
       {
         path:'/cetak-penjualan',
-        name:'cetak penjualan',
+        name:'Cetak Penjualan',
         component:()=> import('pages/manajer/CetakPenjualan.vue'),
         meta:{
-          manajer:true
+          access:{
+            kasir:false,
+            manajer:true
+          }
         }
       },
       {
         path:'/cetak-pembelian',
-        name:'cetak pembelian',
+        name:'Cetak Pembelian',
         component:()=> import('pages/manajer/CetakPembelian.vue'),
         meta:{
-          manajer:true
+          access:{
+            kasir:false,
+            manajer:true
+          }
         }
       },
     ],

@@ -11,19 +11,19 @@
             <!-- <div class="d"> -->
                 <q-scroll-area class="fit" style="max-width:100%;">
                     <q-list>
-                        <q-item v-if="$route.name === 'kasir'" class="q-pb-md">
+                        <q-item v-for="(link,index) in activelink" :key="index">
                             <q-item-section>
-                                <q-btn :color="$route.name === 'kasir' ? 'primary' :'white'" no-caps style="width:70px;height:60px;border-radius:10px;" unelevated >
+                                <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" unelevated :flat="$route.name === link.name ? false : true" @click="$router.push({name:link.name})">
                                     <div class="row items-center">
-                                        <q-icon name="home_max" class="col-12"/>
-                                        <div class="text-center col-12">
-                                            Kasir
+                                        <q-icon :name="link.icon" class="col-12"/>
+                                        <div class="text-center col-12" style="font-size:12px;">
+                                            {{link.name}}
                                         </div>
                                     </div>
                                 </q-btn>
                             </q-item-section>
                         </q-item>
-                        <q-item v-if="$route.name === 'kasir'" class="q-pt-none">
+                        <!-- <q-item class="q-pt-none">
                             <q-item-section>
                                     <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" push flat @click="$emit('update:keranjang',!keranjang)">
                                         <div class="row items-center">
@@ -35,70 +35,7 @@
                                         <q-badge color="red" floating>4</q-badge>
                                     </q-btn>
                             </q-item-section>
-                        </q-item>
-
-                        <q-item v-if="$route.meta.manajer" >
-                                <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" unelevated :flat="$route.name === 'Data Kasir' ? false : true" @click="$router.push({name:'Data Kasir'})">
-                                        <div class="row items-center">
-                                            <q-icon name="home_max" class="col-12"/>
-                                            <div class="text-center col-12">
-                                                Data Kasir
-                                            </div>
-                                        </div>
-                                    </q-btn>
-                                </q-item-section>
-                            </q-item>
-
-                            <q-item v-if="$route.meta.manajer" class="q-pt-none">
-                                <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" unelevated :flat="$route.name === 'Data Supplier' ? false : true" @click="$router.push({name:'Data Supplier'})">
-                                        <div class="row items-center">
-                                            <q-icon name="home_max" class="col-12"/>
-                                            <div class="text-center col-12">
-                                                Data Supplier
-                                            </div>
-                                        </div>
-                                    </q-btn>
-                                </q-item-section>
-                            </q-item>
-                            <q-item v-if="$route.meta.manajer" class="q-pt-none">
-                                <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" unelevated :flat="$route.name === 'stok produk' ? false : true" @click="$router.push({name:'stok produk'})" >
-                                        <div class="row items-center">
-                                            <q-icon name="home_max" class="col-12"/>
-                                            <div class="text-center col-12">
-                                                Stok Produk
-                                            </div>
-                                        </div>
-                                    </q-btn>
-                                </q-item-section>
-                            </q-item>
-                            <q-item v-if="$route.meta.manajer" class="q-pt-none">
-                                <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" unelevated :flat="$route.name === 'cetak penjualan' ? false : true" @click="$router.push({name:'cetak penjualan'})"  >
-                                        <div class="row items-center">
-                                            <q-icon name="home_max" class="col-12"/>
-                                            <div class="text-center col-12">
-                                                Cetak Penjualan
-                                            </div>
-                                        </div>
-                                    </q-btn>
-                                </q-item-section>
-                            </q-item>
-                            <q-item v-if="$route.meta.manajer" class="q-pt-none">
-                                <q-item-section>
-                                    <q-btn color="primary" no-caps style="width:70px;border-radius:10px;" unelevated :flat="$route.name === 'cetak pembelian' ? false : true" @click="$router.push({name:'cetak pembelian'})" >
-                                        <div class="row items-center">
-                                            <q-icon name="home_max" class="col-12"/>
-                                            <div class="text-center col-12">
-                                                Cetak Pembelian
-                                            </div>
-                                        </div>
-                                    </q-btn>
-                                </q-item-section>
-                            </q-item>
-                        
+                        </q-item> -->
                     </q-list>
                 </q-scroll-area>
             <!-- </div> -->
@@ -120,10 +57,20 @@
 </template>
 
 <script>
+import { menu } from 'src/common/menu'
 export default {
     props:[
         'keranjang'
     ],
+    computed:{
+        role(){
+            let r = this.$store.state.auth.user
+            return r ? r.account.role : ''
+        },
+        activelink(){
+            return menu.filter(m => m.access[this.role])
+        }
+    },
     data(){
         return{
             sidebar:true
@@ -133,7 +80,6 @@ export default {
         bukaKeranjang(){
 
         },
-       
     }
 }
 </script>

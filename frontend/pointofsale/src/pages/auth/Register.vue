@@ -3,7 +3,7 @@
     <q-banner inline-actions class="text-white bg-red btn-radius" v-if="error">
         {{error}}
     </q-banner>
-    <div class="text-primary text-h6 q-mb-sm">Daftar</div>
+    <div class="text-primary text-h6 q-mb-sm blackown">Daftar</div>
     <div class="q-mb-sm text-justify">Isilah form di bawah ini untuk mendaftar ke dalam aplikasi POS </div>
     <q-form @submit.prevent.stop="onSubmit('auth/register',user)" ref="form">
         <q-input
@@ -103,9 +103,6 @@ export default {
                 address:'alamat testing',
                 telephone:'082308230823',
             },
-            error:'',
-            btndisabled:false,
-            load:false
         }
     },
 }

@@ -1,16 +1,19 @@
 <template>
     <div class="manajer">
         <q-btn color="primary" icon="add" label="Tambah Supplier" @click="onClick" no-caps class="btn-radius" unelevated/>
+   
         <q-table
             class="my-sticky-header-table q-mt-md btn-radius"
             :title="$route.name"
-            :rows="rows"
+            :rows="data"
             :columns="columns"
-            row-key="name"
+            row-key="id"
+            :loading="loading"
             :filter="filter"
+            binary-state-sort
             flat
             bordered
-        >
+            >
             <template v-slot:top-right>
                 <q-input borderless dense debounce="300" v-model="filter" placeholder="Search">
                 <template v-slot:append>
@@ -18,6 +21,25 @@
                 </template>
                 </q-input>
             </template> 
+            <template v-slot:body-cell-action="props">
+              <q-td :props="props">
+                <q-btn color="blue" icon="visibility" no-caps unelevated dense class="q-mr-sm q-px-sm">
+                  <q-tooltip>
+                    Detail
+                  </q-tooltip>
+                </q-btn>
+                <q-btn color="positive" icon="edit" no-caps unelevated dense class="q-mr-sm q-px-sm">
+                  <q-tooltip>
+                    Edit
+                  </q-tooltip>
+                </q-btn>
+                <q-btn color="negative" icon="delete"  no-caps unelevated dense class="q-mr-sm q-px-sm">
+                  <q-tooltip>
+                    Delete
+                  </q-tooltip>
+                </q-btn>
+              </q-td>
+            </template>
         </q-table>
     </div>
 </template>
@@ -27,157 +49,32 @@ const columns = [
   {
     name: 'name',
     required: true,
-    label: 'Dessert (100g serving)',
+    label: 'Nama',
     align: 'left',
     field: row => row.name,
     format: val => `${val}`,
     sortable: true
   },
-  { name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true },
-  { name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true },
-  { name: 'carbs', label: 'Carbs (g)', field: 'carbs' },
-  { name: 'protein', label: 'Protein (g)', field: 'protein' },
-  { name: 'sodium', label: 'Sodium (mg)', field: 'sodium' },
-  { name: 'calcium', label: 'Calcium (%)', field: 'calcium', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) },
-  { name: 'iron', label: 'Iron (%)', field: 'iron', sortable: true, sort: (a, b) => parseInt(a, 10) - parseInt(b, 10) }
+  { name: 'email', align: 'left', label: 'Email', field: 'email', sortable: true },
+  { name: 'address', align: 'left', label: 'Alamat', field: 'address', sortable: true },
+  { name: 'telephone', align: 'left', label: 'No. Telp', field: 'telephone' },
+  { name: 'action',  align: 'left',label: 'Actions', field: 'action'},
 ]
-
-const rows = [
-  {
-    name: 'Frozen Yogurt',
-    calories: 159,
-    fat: 6.0,
-    carbs: 24,
-    protein: 4.0,
-    sodium: 87,
-    calcium: '14%',
-    iron: '1%'
-  },
-  {
-    name: 'Ice cream sandwich',
-    calories: 237,
-    fat: 9.0,
-    carbs: 37,
-    protein: 4.3,
-    sodium: 129,
-    calcium: '8%',
-    iron: '1%'
-  },
-  {
-    name: 'Eclair',
-    calories: 262,
-    fat: 16.0,
-    carbs: 23,
-    protein: 6.0,
-    sodium: 337,
-    calcium: '6%',
-    iron: '7%'
-  },
-  {
-    name: 'Cupcake',
-    calories: 305,
-    fat: 3.7,
-    carbs: 67,
-    protein: 4.3,
-    sodium: 413,
-    calcium: '3%',
-    iron: '8%'
-  },
-  {
-    name: 'Gingerbread',
-    calories: 356,
-    fat: 16.0,
-    carbs: 49,
-    protein: 3.9,
-    sodium: 327,
-    calcium: '7%',
-    iron: '16%'
-  },
-  {
-    name: 'Jelly bean',
-    calories: 375,
-    fat: 0.0,
-    carbs: 94,
-    protein: 0.0,
-    sodium: 50,
-    calcium: '0%',
-    iron: '0%'
-  },
-  {
-    name: 'Lollipop',
-    calories: 392,
-    fat: 0.2,
-    carbs: 98,
-    protein: 0,
-    sodium: 38,
-    calcium: '0%',
-    iron: '2%'
-  },
-  {
-    name: 'Honeycomb',
-    calories: 408,
-    fat: 3.2,
-    carbs: 87,
-    protein: 6.5,
-    sodium: 562,
-    calcium: '0%',
-    iron: '45%'
-  },
-  {
-    name: 'Donut',
-    calories: 452,
-    fat: 25.0,
-    carbs: 51,
-    protein: 4.9,
-    sodium: 326,
-    calcium: '2%',
-    iron: '22%'
-  },
-  {
-    name: 'KitKat',
-    calories: 518,
-    fat: 26.0,
-    carbs: 65,
-    protein: 7,
-    sodium: 54,
-    calcium: '12%',
-    iron: '6%'
-  }
-]
-import {ref} from 'vue'
+import { useFetch } from 'src/composables/useFetch.js';
+import { useStore } from 'vuex'
+import { ref } from 'vue'
 export default {
   setup () {
+    const store = useStore()
+    const fetch = useFetch()
+    fetch.getData('supplier',store.state.auth.access_token)
     return {
-      columns,
-      rows,
-      filter: ref(''),
+        columns,
+        filter:ref(''),
+        data : fetch.data,
+        error: fetch.error,
+        loading : fetch.loading
     }
-  }
+  },
 }
 </script>
-<style lang="scss">
-    .q-table__top,
-    .q-table__bottom,
-    thead tr:first-child th
-    {
-        background-color:white;
-    }
-</style>
-<style lang="sass">
-.my-sticky-header-table
-  /* height or max-height is important */
-  height: 410px
-
-
-
-  thead tr th
-    position: sticky
-    z-index: 1
-  thead tr:first-child th
-    top: 0
-
-  /* this is when the loading indicator appears */
-  &.q-table--loading thead tr:last-child th
-    /* height of all previous header rows */
-    top: 48px
-</style>

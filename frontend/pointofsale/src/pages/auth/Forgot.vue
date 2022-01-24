@@ -44,9 +44,6 @@ export default {
             user:{
                 email:'test@gmail.com'
             },
-            error:'',
-            btndisabled: false,
-            load:false
         }
     },
 }

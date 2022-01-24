@@ -64,9 +64,7 @@ export default {
                 email:'fajarrsbispenjoe@gmail.com',
                 password:'password'
             },
-            load:false,
-            btndisabled:false,
-            error:''
+            
         }
     },
     methods:{

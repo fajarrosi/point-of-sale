@@ -50,3 +50,24 @@
     grid-template-rows: 110px auto;
 }
 
+// Table 
+.q-table__top,
+.q-table__bottom,
+thead tr:first-child th
+{
+    background-color:white;
+}
+.my-sticky-header-table {
+    thead tr th{
+        position: sticky;
+        z-index: 1;
+    }
+    thead tr:first-child th{
+        top: 0;
+    }
+    &.q-table--loading thead tr:last-child th{
+        top: 48px;
+    }
+}
+// Table 
+
